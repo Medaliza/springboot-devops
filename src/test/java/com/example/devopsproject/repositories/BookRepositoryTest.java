@@ -1,6 +1,5 @@
 package com.example.devopsproject.repositories;
 
-import com.example.devopsproject.models.Owner;
 import com.example.devopsproject.models.Book;
 import com.github.database.rider.core.api.connection.ConnectionHolder;
 import com.github.database.rider.core.api.dataset.DataSet;

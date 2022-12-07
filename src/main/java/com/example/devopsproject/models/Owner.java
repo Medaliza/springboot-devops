@@ -17,7 +17,7 @@ public class Owner {
     private int age;
 
     @OneToMany(mappedBy = "owner")
-    private List<Books> books;
+    private List<Book> books;
 
     public String getName() {
         return name;

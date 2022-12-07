@@ -47,7 +47,7 @@ public class OwnerRepositoryTest {
         Owner o = owner.get();
         Assertions.assertEquals(1, o.getId(), "The owner ID should be 1");
         Assertions.assertEquals("owner 1", o.getName(), "Incorrect owner name");
-        Assertions.assertEquals(15, o.getAge(), "Incorrect owner age");
+        Assertions.assertEquals(20, o.getAge(), "Incorrect owner age");
     }
 
     @Test

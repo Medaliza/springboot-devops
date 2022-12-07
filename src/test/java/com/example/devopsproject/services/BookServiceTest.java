@@ -19,13 +19,13 @@ import java.util.Optional;
 import static org.mockito.Mockito.doReturn;
 
 @SpringBootTest
-public class PetServiceTest {
+public class BookServiceTest {
 
     /**
      * Autowire in the service we want to test
      */
     @Autowired
-    private PetService service;
+    private BookService service;
 
     /**
      * Create a mock implementation of the BookRepository
@@ -47,7 +47,7 @@ public class PetServiceTest {
         doReturn(Optional.of(book)).when(bookRepository).findById(1l);
 
         // Execute the service call
-        Book returnedBook = service.getPetById(1l);
+        Book returnedBook = service.getBookById(1l);
 
         // Assert the response
         Assertions.assertSame(returnedBook, book, "The book returned was not the same as the mock");
@@ -60,7 +60,7 @@ public class PetServiceTest {
         doReturn(Optional.empty()).when(bookRepository).findById(1l);
 
         Exception exception = Assertions.assertThrows(ResourceNotFoundException.class, () -> {
-            Book returnedBook = service.getPetById(1l);
+            Book returnedBook = service.getBookById(1l);
         });
         String expectedMessage = "Book with this Id not found";
         String actualMessage = exception.getMessage();

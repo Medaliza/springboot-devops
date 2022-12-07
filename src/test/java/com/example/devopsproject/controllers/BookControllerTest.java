@@ -36,7 +36,7 @@ public class BookControllerTest {
 
         Book book1 = new Book(1l, "harry potter", "description of harry potter test");
         Book book2 = new Book(2l, "lord of the rings", "description of lord of the rings test");
-        doReturn(Lists.newArrayList(Book1, Book2)).when(service).getAllBooks();
+        doReturn(Lists.newArrayList(book1, book2)).when(service).getAllBooks();
 
         mockMvc.perform(get("/book/all"))
                 // Validate the response code and content type
@@ -85,7 +85,7 @@ public class BookControllerTest {
                         .content(asJsonString(bookToCreate)))
 
                 // Validate the response code and content type
-                .andExpect(status().isOk());
+                .andExpect(status().isNotFound());
     }
 
 }

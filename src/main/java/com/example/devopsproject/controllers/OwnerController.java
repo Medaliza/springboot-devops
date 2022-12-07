@@ -26,14 +26,14 @@ public class OwnerController {
     @GetMapping("/{ownerId}")
     public Owner getOwnerByID(@PathVariable("ownerId") Long ownerID) throws Exception
     {
-        Owner owner = this.ownerService.getOwnerByID(ownerID);
+        Owner owner = this.ownerService.getOwnerById(ownerID);
         return owner;
     }
 
     @PostMapping("/create")
     public Owner createNewOwner(@RequestBody Owner newOwner)
     {
-        Owner owner = this.ownerService.createNewOwner(newOwner);
+        Owner owner = this.ownerService.createOwner(newOwner);
         return owner;
     }
 

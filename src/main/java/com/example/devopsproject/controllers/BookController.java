@@ -1,9 +1,9 @@
 package com.example.devopsproject.controllers;
 
 import com.example.devopsproject.models.Owner;
-import com.example.devopsproject.models.Pet;
+import com.example.devopsproject.models.Book;
 import com.example.devopsproject.services.OwnerService;
-import com.example.devopsproject.services.PetService;
+import com.example.devopsproject.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,17 +17,17 @@ public class BookController {
     BookService bookService;
 
     @GetMapping("/all")
-    public List<book> getBooks()
+    public List<Book> getBooks()
     {
-        List<book> bookList = this.bookService.getBooks();
+        List<Book> bookList = this.bookService.getAllBooks();
         return bookList;
     }
 
 
     @GetMapping("/{bookID}")
-    public book getBookByID(@PathVariable("bookID") Long bookID) throws Exception
+    public Book getBookByID(@PathVariable("bookID") Long bookID) throws Exception
     {
-        Book book = this.bookService.getbookByID(bookID);
+        Book book = this.bookService.getBookById(bookID);
         return book;
     }
 
