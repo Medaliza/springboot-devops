@@ -9,8 +9,8 @@ pipeline {
         DEPLOYMENT_SERVER_USER= "medali"
         SONARQUBE_SERVER_IP ="192.168.122.144"
         SONARQUBE_SERVER_USER="medali"
-        JENKINS_SERVER_IP ="192.168.122.251"
-        JENKINS_SERVER_USER="medali"
+        JENKINS_SERVER_IP ="127.0.0.1"
+        JENKINS_SERVER_USER="admin"
     }
     tools {
         maven 'maven'
@@ -20,34 +20,6 @@ pipeline {
             steps {
                 script {
                     gv = load "script.groovy"
-                }
-            }
-        }
-        stage("SonarQube Testing and Scan") {
-            steps {
-                script {
-                    gv.sonarScan("${SONARQUBE_SERVER_IP}","${SONARQUBE_SERVER_USER}")
-                }
-            }
-        }
-        stage("Push JAR to Nexus"){
-            steps {
-                script {
-                    gv.pushToNexus()
-                }
-            }
-        }
-        stage("build image") {
-            steps {
-                script {
-                    gv.buildImage()
-                }
-            }
-        }
-        stage("deploy") {
-            steps {
-                script {
-                    gv.deployApp("${DEPLOYMENT_SERVER_IP}","${DEPLOYMENT_SERVER_USER}")
                 }
             }
         }
