@@ -6,7 +6,7 @@ def run_unit_tests(){
     sh "mvn test"
 }
 def sonarqube_scan(){
-    sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=oussema"
+    sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=admin123"
 
 }
 return this
