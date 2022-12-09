@@ -5,11 +5,8 @@ RUN mkdir -p /home/project
 COPY . /home/project
 
 WORKDIR /home/project
-# Compile and package the application to an executable JAR
 
 RUN mvn install -Dmaven.test.skip=true
-
-# For Java 11,
 
 FROM adoptopenjdk/openjdk11:alpine-jre as runtime
 
