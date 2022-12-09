@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  mysql_db:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin123
+      - MYSQL_DATABASE=bookstore
+    ports:
+      - 3306:3306:3306
+    volumes:
+      - /var/lib/docker/volumes/devops-project-volume/_data:/var/lib/mysql
+
+  backend-app:
+    image: devopsproject
+    restart: on-failure
+    depends_on:
+      - mysql_db
+    ports:
+      - 8080:8080
+    environment:
+      - DATABASE_HOST=mysql_db
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=admin123
+      - DATABASE_NAME=bookstore
+      - DATABASE_PORT=3306
