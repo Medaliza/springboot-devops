@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>devops-project</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
     <name>devops-project</name>
     <description>devops-project</description>
     <properties>
@@ -166,8 +166,8 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <url>http://192.168.122.241:8081/repository/maven-snapshots/</url>
+            <id>nexus-releases</id>
+            <url>http://localhost:8081/repository/maven-releases/</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
